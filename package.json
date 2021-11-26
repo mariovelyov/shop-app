@@ -29,7 +29,8 @@
     "expo-app-loading": "~1.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "redux-devtools-extension": "^2.13.9"
   },
   "private": true
 }
