@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Text, FlatList, StyleSheet, Button } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import * as cartActions from "../../store/actions/cart";
 
 import CartItem from "../../components/shop/CartItem";
 import Colors from "../../constants/Colors";
+import * as cartActions from "../../store/actions/cart";
+import * as ordersActions from "../../store/actions/order";
 
 const CartScreen = (props) => {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ const CartScreen = (props) => {
           title="Order Now"
           color={Colors.accent}
           disabled={cartItems.length === 0}
+          onPress={() => {
+            dispatch(ordersActions.addOrder(cartItems, cartTotalAmount.toFixed(2)));
+          }}
         />
       </View>
       <FlatList
