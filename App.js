@@ -9,7 +9,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import productsReducer from "./store/reducers/products";
 import cartReducer from "./store/reducers/cart";
 import ordersReducer from "./store/reducers/order";
-import ShopNavigator from "./navigation/ShopNavigator";
+import MainNavigator from "./navigation/MainNavigator";
 
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -45,7 +45,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <ShopNavigator />
+      <MainNavigator />
     </Provider>
   );
 };
