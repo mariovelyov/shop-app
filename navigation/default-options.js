@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
 
-import Platforms from "../../constants/Platforms";
-import Colors from "../../constants/Colors";
+import Platforms from "../constants/Platforms";
+import Colors from "../constants/Colors";
 
 export const defaultNavOptions = {
   headerStyle: {

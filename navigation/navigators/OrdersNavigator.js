@@ -5,7 +5,7 @@ import { createStackNavigator } from "react-navigation-stack";
 
 import OrdersScreen from "../../screens/shop/OrdersScreen";
 import Platforms from "../../constants/Platforms";
-import { defaultNavOptions } from "./default-options";
+import { defaultNavOptions } from "../default-options";
 
 export const OrdersNavigator = createStackNavigator(
   {

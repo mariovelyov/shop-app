@@ -6,7 +6,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import UserProductsScreen from "../../screens/user/UserProductsScreen";
 import EditProductScreen from "../../screens/user/EditProductScreen";
 import Platforms from "../../constants/Platforms";
-import { defaultNavOptions } from "./default-options";
+import { defaultNavOptions } from "../default-options";
 
 export const AdminNavigator = createStackNavigator(
   {
