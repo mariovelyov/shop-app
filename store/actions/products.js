@@ -13,7 +13,7 @@ export const fetchProducsts = () => {
       );
 
       if (!response.ok) {
-        throw new Error("Fetching products failed!");
+        throw new Error("Fetch products failed!");
       }
 
       const resData = await response.json();
@@ -53,7 +53,7 @@ export const deleteProduct = (productId) => {
     );
 
     if (!response.ok) {
-      throw new Error("Deleting product failed!");
+      throw new Error("Delete product failed!");
     }
 
     dispatch({
@@ -82,7 +82,7 @@ export const createProduct = (title, description, imageUrl, price) => {
     );
 
     if (!response.ok) {
-      throw new Error("Creating product failed!");
+      throw new Error("Create product failed!");
     }
 
     const resData = await response.json();
@@ -118,7 +118,7 @@ export const updateProduct = (id, title, description, imageUrl) => {
     );
 
     if (!response.ok) {
-      throw new Error("Updating product failed!");
+      throw new Error("Update product failed!");
     }
     dispatch({
       type: UPDATE_PRODUCT,
