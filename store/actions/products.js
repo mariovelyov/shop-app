@@ -13,7 +13,7 @@ export const fetchProducsts = () => {
       );
 
       if (!response.ok) {
-        throw new Error("Fetching data failed!");
+        throw new Error("Fetching products failed!");
       }
 
       const resData = await response.json();
@@ -45,12 +45,16 @@ export const fetchProducsts = () => {
 
 export const deleteProduct = (productId) => {
   return async (dispatch) => {
-    await fetch(
+    const response = await fetch(
       `https://rn-complete-guide-65759-default-rtdb.firebaseio.com/products/${productId}.json`,
       {
         method: "DELETE",
       }
     );
+
+    if (!response.ok) {
+      throw new Error("Deleting product failed!");
+    }
 
     dispatch({
       type: DELETE_PRODUCT,
@@ -77,6 +81,10 @@ export const createProduct = (title, description, imageUrl, price) => {
       }
     );
 
+    if (!response.ok) {
+      throw new Error("Creating product failed!");
+    }
+
     const resData = await response.json();
 
     dispatch({
@@ -94,7 +102,7 @@ export const createProduct = (title, description, imageUrl, price) => {
 
 export const updateProduct = (id, title, description, imageUrl) => {
   return async (dispatch) => {
-    await fetch(
+    const response = await fetch(
       `https://rn-complete-guide-65759-default-rtdb.firebaseio.com/products/${id}.json`,
       {
         method: "PATCH",
@@ -109,6 +117,9 @@ export const updateProduct = (id, title, description, imageUrl) => {
       }
     );
 
+    if (!response.ok) {
+      throw new Error("Updating product failed!");
+    }
     dispatch({
       type: UPDATE_PRODUCT,
       pid: id,
