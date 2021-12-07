@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { useTranslation } from "react-i18next";
 
 import ProductItem from "../../components/shop/ProductItem";
 import CustomHeaderButton from "../../components/UI/HeaderButton";
@@ -17,8 +18,13 @@ import * as cartActions from "../../store/actions/cart";
 import * as productsActions from "../../store/actions/products";
 import Platforms from "../../constants/Platforms";
 import Colors from "../../constants/Colors";
+import i18n from "../../services/i18n";
+
+const initI18n = i18n;
 
 const ProductsOverviewScreen = (props) => {
+  const {t} = useTranslation();
+
   const [isLoading, setIsLoading] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [error, setError] = useState();
@@ -68,7 +74,7 @@ const ProductsOverviewScreen = (props) => {
       <View style={styles.centered}>
         <Text>An error with the following message ocurred: {error}</Text>
         <Button
-          title="Try again"
+          title={t("viewDetailsButton")}
           onPress={loadProducts}
           color={Colors.primary}
         />
@@ -109,14 +115,14 @@ const ProductsOverviewScreen = (props) => {
         >
           <Button
             color={Colors.primary}
-            title="View Details"
+            title={t("viewDetailsButton")}
             onPress={() => {
               selectItemHandler(itemData.item.id, itemData.item.title);
             }}
           />
           <Button
             color={Colors.primary}
-            title="To Cart"
+            title={t("addToCartButton")}
             onPress={() => {
               dispatch(cartActions.addToCart(itemData.item));
             }}
