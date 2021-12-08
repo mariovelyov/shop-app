@@ -6,6 +6,7 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
+  Text,
 } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { useSelector, useDispatch } from "react-redux";

@@ -5,7 +5,7 @@ import ShopNavigator from "./navigators/ShopNavigator";
 
 const MainNavigator = createSwitchNavigator({
   Auth: AuthNavigator,
-  SHop: ShopNavigator,
+  Shop: ShopNavigator,
 });
 
 export default createAppContainer(MainNavigator);
