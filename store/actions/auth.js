@@ -19,11 +19,18 @@ export const signup = (email, password) => {
     );
 
     if (!response.ok) {
-      throw new Error("Sign up failed!");
+      const errorResData = await response.json();
+      const errorId = errorResData.error.message;
+      let message = "Something went wrong!";
+
+      if (errorId === "EMAIL_EXISTS") {
+        message = "This email already exists!";
+      }
+
+      throw new Error(message);
     }
 
     const resData = await response.json();
-    console.log("sign up--->", resData);
 
     dispatch({
       type: SIGNUP,
@@ -49,11 +56,20 @@ export const login = (email, password) => {
     );
 
     if (!response.ok) {
-      throw new Error("Sign up failed!");
+      const errorResData = await response.json();
+      const errorId = errorResData.error.message;
+      let message = "Something went wrong!";
+
+      if (errorId === "EMAIL_NOT_FOUND") {
+        message = "This email could not be found!";
+      } else if (errorId === "INVALID_PASSWORD") {
+        message = "This password is not valid!";
+      }
+
+      throw new Error(message);
     }
 
     const resData = await response.json();
-    console.log("login--->", resData);
 
     dispatch({
       type: LOGIN,
