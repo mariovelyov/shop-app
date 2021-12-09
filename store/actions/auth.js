@@ -45,7 +45,7 @@ export const signup = (email, password) => {
     dispatch(authenticate(resData.localId, resData.idToken));
 
     const expirationDate =
-      new Date().getTime() + parseInt(resData.expiresIn) * 1000;
+      new Date(new Date().getTime() + parseInt(resData.expiresIn) * 1000);
     saveDataToStorage(
       resData.idToken,
       resData.localId,
@@ -90,7 +90,7 @@ export const login = (email, password) => {
     dispatch(authenticate(resData.localId, resData.idToken));
 
     const expirationDate =
-      new Date().getTime() + parseInt(resData.expiresIn) * 1000;
+      new Date(new Date().getTime() + parseInt(resData.expiresIn) * 1000);
     saveDataToStorage(
       resData.idToken,
       resData.localId,
