@@ -21,8 +21,6 @@ const StartupScreen = (props) => {
       const transformedData = JSON.parse(userData);
       const { token, userId, expiryDate } = transformedData;
 
-      console.log("transformedData--->", transformedData);
-
       const expirationDate = new Date(expiryDate);
 
       if (expirationDate <= new Date() || !token || !userId) {
