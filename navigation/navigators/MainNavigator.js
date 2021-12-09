@@ -1,8 +1,8 @@
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 
-import StartupScreen from "../screens/StartupScreen";
-import AuthNavigator from "./navigators/AuthNavigator";
-import ShopNavigator from "./navigators/ShopNavigator";
+import StartupScreen from "../../screens/StartupScreen";
+import AuthNavigator from "./AuthNavigator";
+import ShopNavigator from "./ShopNavigator";
 
 const MainNavigator = createSwitchNavigator({
   Startup: StartupScreen,

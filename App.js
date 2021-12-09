@@ -11,7 +11,7 @@ import productsReducer from "./store/reducers/products";
 import cartReducer from "./store/reducers/cart";
 import ordersReducer from "./store/reducers/order";
 import authReducer from "./store/reducers/auth";
-import MainNavigator from "./navigation/MainNavigator";
+import NavigationContainer from "./navigation/NavigationContainer";
 
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -20,9 +20,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
 });
 
-const composedElements = compose(
-  applyMiddleware(ReduxThunk),
-);
+const composedElements = compose(applyMiddleware(ReduxThunk));
 
 const store = createStore(rootReducer, composedElements);
 
@@ -52,7 +50,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <MainNavigator />
+      <NavigationContainer />
     </Provider>
   );
 };
