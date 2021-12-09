@@ -22,7 +22,6 @@ const rootReducer = combineReducers({
 
 const composedElements = compose(
   applyMiddleware(ReduxThunk),
-  composeWithDevTools()
 );
 
 const store = createStore(rootReducer, composedElements);

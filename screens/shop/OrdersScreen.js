@@ -5,6 +5,7 @@ import {
   FlatList,
   Platform,
   ActivityIndicator,
+  StyleSheet,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
@@ -52,6 +53,14 @@ const OrdersScreen = (props) => {
     );
   }
 
+  if (orders.length === 0) {
+    return (
+      <View style={styles.emptyContainer}>
+        <Text>There are no user orders!</Text>
+      </View>
+    );
+  }
+
   return (
     <FlatList
       data={orders}
@@ -83,5 +92,13 @@ OrdersScreen.navigationOptions = (navData) => {
     ),
   };
 };
+
+const styles = StyleSheet.create({
+  emptyContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 export default OrdersScreen;
